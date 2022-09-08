@@ -1,0 +1,65 @@
+<script>
+   //var table = $('#sinfo').DataTable();
+ 
+   /*$('#sinfo').on( 'click', 'tbody td', function () {
+      table.cell( this ).edit( 'bubble' );
+   } );*/
+
+    $(document).ready( function () {
+      $('#sinfo').DataTable({
+      "data": {{data}},
+      "columns":{{columns}},
+       dom:'lBfrtip',
+       "fixedHeader":true,
+       buttons:[
+         {
+            extend:'copy',
+            text:'<i class="fas fa-clone"></i>',
+            className:'btn btn-secondary',
+            titleAttr:'Copy',
+         },{
+            extend:'excel',
+            text:'<i class="fa fa-file-excel"></i>',
+            className:'btn btn-secondary',
+            titleAttr:'Excel',
+         },{
+            extend:'pdf',
+            text:'<i class="fa fa-file-pdf"></i>',
+            className:'btn btn-secondary',
+            titleAttr:'PDF',
+         },
+         {
+            extend:'print',
+            text:'<i class="fa fa-print"></i>',
+            className:'btn btn-secondary',
+            titleAttr:'Print',
+         },{
+            extend: 'searchBuilder',
+            config: {
+                depthLimit: 2
+            }
+        }
+        
+       ],
+       "createdRow": function( row, data, dataIndex ) {
+        //console.log(data[1]);
+        //var table=$('#example');
+        //console.log(table) ; 
+        console.log(data);
+        if ( data.country == "India" && data.total_profit > 20000 ) {
+            //console.log("hujhju");
+            $('td', row).css('background-color','yellow');
+        }else if(data.total_profit>1000000){
+            $('td', row).css('background-color','green');
+        }else if(data.salary==5300){
+         $('td',row).css('background-color','red');
+        }
+        //console.log(data.country);
+      },
+      responsive: {
+        details: true
+      },
+      //autoFill:true
+      });
+     });   
+  </script>

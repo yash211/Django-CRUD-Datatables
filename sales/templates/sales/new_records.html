@@ -1,0 +1,26 @@
+{% extends 'sales/base.html' %}
+{% load static %}
+{% block title%} {{block.super}} - NewRecord {% endblock title %}
+{%block content%}
+<body >
+<div class="container-lg">
+    <table id="sinfo" class="table table-bordered table-light table-striped table-hover">
+        <thead class="thead thead-dark">
+            <tr>
+                <th>Name</th>
+                <th>Position</th>
+                <th>Office</th>
+                <th>Salary</th>
+                <th>Start Date</th>
+                <th>Extn</th>
+            </tr>
+        </thead>
+    </table>
+</div> 
+
+
+{% include 'sales/datatable.html' with data=data columns=cols%}
+</body>
+{%endblock content%}
+
+

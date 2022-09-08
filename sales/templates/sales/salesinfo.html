@@ -1,0 +1,49 @@
+{% extends 'sales/base.html' %}
+{% load static %}
+{% block title%} {{block.super}} - SalesRecord {% endblock title %}
+{%block content%}
+<body >
+<div class="container-lg">
+    <table id="sinfo" class="table table-bordered table-light table-striped table-hover">
+        <thead class="thead thead-dark">
+            <tr>
+                <th>Region</th>
+                <th>Country</th>
+                <th>Item_Type</th>
+                <th>sales_channel</th>
+                <th>Order_id</th>
+                <th>units_sold</th>
+                <th>unit_price</th>
+                <th>unit_cost</th>
+                <th>total_revenue</th>
+                <th>total_cost</th>
+                <th>total_profit</th>
+            </tr>
+        </thead>
+        {% comment %} <tbody>
+            {%for i in sales%}
+            <tr>
+            <td>{{i.region}}</td>
+            <td>{{i.country}}</td>
+            <td>{{i.item_type}}</td>
+            <td>{{i.sales_channel}}</td>
+            <td>{{i.order_id}}</td>
+            <td>{{i.units_sold}}</td>
+            <td>{{i.unit_price}}</td>
+            <td>{{i.unit_cost}}</td>
+            <td>{{i.total_revenue}}</td>
+            <td>{{i.total_cost}}</td>
+            <td>{{i.total_profit}}</td>
+            
+            </tr>
+            {%endfor%}
+        </tbody> {% endcomment %}
+    </table>
+</div> 
+
+
+{% include 'sales/datatable.html' with data=sales columns=cols%}
+</body>
+{%endblock content%}
+
+
